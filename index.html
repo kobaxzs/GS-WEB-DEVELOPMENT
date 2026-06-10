@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroSat — Monitoramento Agrícola via Sensor Embarcado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <div class="logo-icon">🛰️</div>
+        AgroSat
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#publico">Público</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#aplicacao">Aplicação</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="nav-cta" href="https://www.tinkercad.com/things/kbteE1diXTA-smashing-hillar" target="_blank" rel="noopener">↗ Simulação</a>
+        <div class="theme-switcher" aria-label="Troca de tema">
+          <button class="theme-btn is-active" type="button" data-theme="verde">Verde</button>
+          <button class="theme-btn" type="button" data-theme="ceu">Céu</button>
+          <button class="theme-btn" type="button" data-theme="solar">Solar</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-tag"><span class="hero-tag-dot"></span> Sistema Ativo</span>
+        <span class="hero-ods">ODS 2 · ODS 9 · ODS 13</span>
+      </div>
+      <h1 class="hero-title">
+        Inteligência<br />
+        <span class="hero-title-accent">Espacial</span><br />
+        no Campo
+      </h1>
+      <p class="hero-subtitle">// Arduino + Sentinel-2 + Landsat</p>
+      <p class="hero-sub">AgroSat espelha satélites de observação da Terra em escala de campo, usando temperatura, umidade e luminosidade para proteger safras.</p>
+      <div class="hero-actions">
+        <a href="#problema" class="btn-primary">▶ Explorar Solução</a>
+        <a href="#tecnologia" class="btn-ghost">Ver Hardware →</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img
+        src="img/campo.jpg"
+        alt="Vista aérea de plantação agrícola com fileiras de cultivo ao entardecer"
+        class="hero-img"
+      />
+      <div class="hero-sat-badge">🛰️ Sentinel-2 · Landsat-8 Mirror</div>
+      <div class="hero-data-widget">
+        <div class="widget-label">
+          <span class="widget-dot"></span>
+          Leitura em Tempo Real
+        </div>
+        <div class="widget-readings">
+          <div class="reading-row">
+            <span class="reading-key">🌡️ Temp.</span>
+            <span class="reading-val">28.4 °C</span>
+          </div>
+          <div class="reading-row">
+            <span class="reading-key">💧 Umidade</span>
+            <span class="reading-val">61 %</span>
+          </div>
+          <div class="reading-row">
+            <span class="reading-key">☀️ Lux</span>
+            <span class="reading-val">82400</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="problema">
+    <div class="section-inner layout-split">
+      <div class="split-visual">
+        <img
+          src="img/plantas.jpg"
+          alt="Solo rachado e seco representando seca agrícola e perda de safra"
+        />
+        <div class="visual-tag">⚠ Alerta de Seca Ativo</div>
+      </div>
+      <div class="split-text">
+        <span class="section-tag">Seção 01 — Problema</span>
+        <h2>Pequenos agricultores decidem no escuro</h2>
+        <p>Pequenos produtores raramente acessam dados climáticos de campo em tempo real.</p>
+        <p>Satélites monitoram lavouras, mas seus dados ainda chegam pouco ao produtor local.</p>
+        <div class="stat-grid">
+          <div class="stat-block">
+            <div class="num">R$ 40bi</div>
+            <div class="desc">perdas agrícolas anuais no Brasil por eventos climáticos</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">90%</div>
+            <div class="desc">dos pequenos produtores sem monitoramento de campo</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">30%</div>
+            <div class="desc">da água de irrigação desperdiçada sem dados de umidade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tecnologia">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag">Seção 02 — Tecnologia</span>
+        <h2>Hardware e Software embarcados</h2>
+        <p class="section-intro">Stack completa — do sensor físico à visualização de dados — simulável no Wokwi e Tinkercad.</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon-wrap">🧠</div>
+          <h3>Arduino Uno</h3>
+          <p>Microcontrolador central que processa leituras dos sensores, aplica thresholds agronômicos e aciona alertas em tempo real.</p>
+          <span class="tech-tag">Edge Computing</span>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon-wrap">🌡️</div>
+          <h3>Sensor DHT22</h3>
+          <p>Mede temperatura e umidade do ar, aproximando leituras locais das bandas térmicas do Landsat.</p>
+          <span class="tech-tag">Temp + Umidade</span>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon-wrap">☀️</div>
+          <h3>LDR (Fotoresistor)</h3>
+          <p>Capta luminosidade solar correlacionando com o índice NDVI calculado pelo Sentinel-2 para inferir estágio vegetativo.</p>
+          <span class="tech-tag">Luminosidade / NDVI</span>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon-wrap">📟</div>
+          <h3>Display LCD 16x2</h3>
+          <p>Exibe leituras ao vivo de temperatura, umidade e status de alerta diretamente no campo, sem necessidade de celular.</p>
+          <span class="tech-tag">Interface Local</span>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon-wrap">🔔</div>
+          <h3>Buzzer + LED RGB</h3>
+          <p>Alertas sonoros e visuais automáticos quando parâmetros cruzam thresholds de geada, seca ou excesso de calor.</p>
+          <span class="tech-tag">Sistema de Alerta</span>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon-wrap">🛰️</div>
+          <h3>Espelhamento Satelital</h3>
+          <p>Dados locais correlacionados com padrões de Sentinel-2 e Landsat, conectando edge computing a sensoriamento remoto.</p>
+          <span class="tech-tag">Landsat · Sentinel-2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="objetivos">
+    <div class="section-inner layout-split reverse">
+      <div class="split-text">
+        <span class="section-tag">Seção 03 — Objetivos</span>
+        <h2>Democratizar dados espaciais para o campo</h2>
+        <p>AgroSat traduz sensoriamento remoto em hardware acessível para pequenos agricultores.</p>
+        <p>Os objetivos conectam tecnologia espacial, alerta local e impacto agrícola mensurável.</p>
+        <div class="goal-list">
+          <div class="goal-item">
+            <span class="goal-num">01</span>
+            <span class="goal-text">Monitorar temperatura, umidade e luminosidade em tempo real no campo</span>
+          </div>
+          <div class="goal-item">
+            <span class="goal-num">02</span>
+            <span class="goal-text">Emitir alertas precoces de geada, seca e excesso de calor automaticamente</span>
+          </div>
+          <div class="goal-item">
+            <span class="goal-num">03</span>
+            <span class="goal-text">Reduzir desperdício hídrico com irrigação baseada em dados de umidade real</span>
+          </div>
+          <div class="goal-item">
+            <span class="goal-num">04</span>
+            <span class="goal-text">Demonstrar aplicação prática de dados satelitais em edge computing embarcado</span>
+          </div>
+          <div class="goal-item">
+            <span class="goal-num">05</span>
+            <span class="goal-text">Tornar a estação replicável com custo total abaixo de R$ 150,00</span>
+          </div>
+        </div>
+      </div>
+      <div class="split-visual">
+        <img
+          src="img/paisagem.jpg"
+          alt="Satélite de observação da Terra em órbita monitorando superfície agrícola"
+        />
+        <div class="visual-tag">🛰️ Sentinel-2 · 10m resolução</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="publico">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag">Seção 04 — Público-alvo</span>
+        <h2>Quem se beneficia do AgroSat</h2>
+        <p class="section-intro">Solução desenhada para quem trabalha a terra e merece dados de qualidade espacial.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <img
+            src="img/TrabalhadorDeCampo.avif"
+            alt="Pequeno agricultor familiar em plantação monitorando safra ao amanhecer"
+          />
+          <div class="audience-card-body">
+            <h3>Pequenos Agricultores</h3>
+            <p>Famílias rurais que precisam de dados de campo confiáveis sem investir em estações meteorológicas caras.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <img
+            src="img/Alimento.jpg"
+            alt="Técnico agrícola analisando dados em tablet no campo"
+          />
+          <div class="audience-card-body">
+            <h3>Técnicos e Extensionistas</h3>
+            <p>Profissionais da EMATER e cooperativas que orientam produtores e precisam de leituras locais precisas.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <img
+            src="img/EstudanteDeEngenharia.jpeg"
+            alt="Estudante de engenharia trabalhando com placa Arduino em laboratório"
+          />
+          <div class="audience-card-body">
+            <h3>Estudantes de Engenharia</h3>
+            <p>Cursos de Engenharia Agronômica, Elétrica e de Computação que exploram IoT aplicado ao agronegócio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="beneficios">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag">Seção 05 — Benefícios</span>
+        <h2>Impacto real, medido em campo</h2>
+        <p class="section-intro">Resultados projetados com base em literatura agronômica e benchmarks de sistemas similares.</p>
+      </div>
+      <div class="benefits-wrap">
+        <div class="benefit-row">
+          <div class="benefit-icon">💧</div>
+          <div class="benefit-body">
+            <h3>Redução de Desperdício Hídrico</h3>
+            <p>Irrigação guiada por dados de umidade real pode cortar o uso de água em até 30%.</p>
+          </div>
+          <div class="benefit-meter"><div class="meter-fill" style="width:80%"></div></div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-icon">🌡️</div>
+          <div class="benefit-body">
+            <h3>Prevenção de Perdas por Geada</h3>
+            <p>Alertas antecipados permitem ação preventiva horas antes de temperaturas críticas.</p>
+          </div>
+          <div class="benefit-meter"><div class="meter-fill" style="width:90%"></div></div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-icon">📡</div>
+          <div class="benefit-body">
+            <h3>Acesso a Inteligência Satelital</h3>
+            <p>Produtores sem internet têm dados comparáveis ao Landsat direto no LCD da estação.</p>
+          </div>
+          <div class="benefit-meter"><div class="meter-fill" style="width:70%"></div></div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-icon">💰</div>
+          <div class="benefit-body">
+            <h3>Baixíssimo Custo de Implementação</h3>
+            <p>Hardware completo por menos de R$ 150 — acessível para qualquer produtor familiar.</p>
+          </div>
+          <div class="benefit-meter"><div class="meter-fill" style="width:95%"></div></div>
+        </div>
+      </div>
+
+      <table class="ods-table">
+        <thead>
+          <tr>
+            <th>ODS</th>
+            <th>Título</th>
+            <th>Conexão com o Projeto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ods-badge ods-2">ODS 2</span></td>
+            <td><div class="ods-title">Fome Zero e Agricultura Sustentável</div></td>
+            <td>Apoio direto a agricultores com dados de campo em tempo real para prevenir perdas de safra.</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge ods-9">ODS 9</span></td>
+            <td><div class="ods-title">Indústria, Inovação e Infraestrutura</div></td>
+            <td>Uso de hardware embarcado (Arduino) e dados satelitais (Sentinel-2, Landsat) como infraestrutura de campo.</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge ods-13">ODS 13</span></td>
+            <td><div class="ods-title">Ação Contra a Mudança do Clima</div></td>
+            <td>Monitoramento de condições climáticas extremas (geada, seca, calor) com alertas automáticos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="aplicacao">
+    <div class="section-inner">
+      <div class="layout-split">
+      <div class="split-text">
+        <span class="section-tag">Seção 06 — Aplicação no Dia a Dia</span>
+        <h2>Da estação ao campo em segundos</h2>
+        <p>O agricultor instala a estação AgroSat na borda da lavoura.</p>
+        <p>O Arduino lê sensores, compara thresholds e exibe alertas no LCD.</p>
+        <div class="app-steps">
+          <div class="step">
+            <span class="step-dot">01</span>
+            <div class="step-body">
+              <h4>Instalar a estação na lavoura</h4>
+              <p>Fixar o Arduino com sensores DHT22 e LDR em suporte de campo exposto ao ambiente.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-dot">02</span>
+            <div class="step-body">
+              <h4>Leitura contínua dos sensores</h4>
+              <p>A cada 5 segundos, o sistema coleta temperatura, umidade e luminosidade solar.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-dot">03</span>
+            <div class="step-body">
+              <h4>Cruzamento com thresholds agronômicos</h4>
+              <p>Valores são comparados com parâmetros de seca, geada e calor extremo programados no firmware.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-dot">04</span>
+            <div class="step-body">
+              <h4>Alerta visual e sonoro imediato</h4>
+              <p>LCD exibe status, LED RGB muda de cor e buzzer soa quando há risco iminente à safra.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="split-visual">
+        <img
+          src="img/luz.jpg"
+          alt="Placa Arduino com sensores conectados em bancada de prototipagem eletrônica"
+        />
+        <div class="visual-tag">🔧 Simulável no Wokwi / Tinkercad</div>
+      </div>
+      </div>
+      <div class="interactive-grid" aria-label="Ferramentas interativas AgroSat">
+        <div class="tool-panel slideshow-panel">
+          <div class="panel-heading">
+            <span class="section-tag">Monitoramento Visual</span>
+            <h3>Ciclo de leitura AgroSat</h3>
+          </div>
+          <div class="slideshow" aria-live="polite">
+            <img id="slideImage" src="img/campo.jpg" alt="Campo agrícola monitorado por solução AgroSat" />
+            <div class="slide-caption" id="slideCaption">Campo monitorado por estação embarcada.</div>
+          </div>
+          <div class="slide-controls">
+            <button type="button" class="icon-btn" id="prevSlide" aria-label="Imagem anterior">←</button>
+            <button type="button" class="icon-btn" id="nextSlide" aria-label="Próxima imagem">→</button>
+          </div>
+        </div>
+
+        <form class="tool-panel alert-form" id="alertForm" novalidate>
+          <div class="panel-heading">
+            <span class="section-tag">Registro de Campo</span>
+            <h3>Simular alerta agrícola</h3>
+          </div>
+          <label>
+            Talhão
+            <input type="text" id="fieldName" name="fieldName" placeholder="Ex.: Lavoura Norte" />
+          </label>
+          <label>
+            Temperatura (°C)
+            <input type="number" id="fieldTemp" name="fieldTemp" placeholder="Ex.: 36" />
+          </label>
+          <label>
+            Umidade do ar (%)
+            <input type="number" id="fieldHumidity" name="fieldHumidity" placeholder="Ex.: 42" />
+          </label>
+          <label>
+            Luminosidade (lux)
+            <input type="number" id="fieldLux" name="fieldLux" placeholder="Ex.: 82000" />
+          </label>
+          <button type="submit" class="btn-primary">Gerar diagnóstico</button>
+          <output class="form-result" id="formResult">Preencha os dados para gerar o alerta.</output>
+        </form>
+
+        <div class="tool-panel quiz-panel">
+          <div class="panel-heading">
+            <span class="section-tag">Quiz Temático</span>
+            <h3>Conhecimento AgroSat</h3>
+          </div>
+          <div id="quizContainer" class="quiz-container"></div>
+          <button type="button" class="btn-primary" id="submitQuiz">Ver resultado</button>
+          <output class="form-result" id="quizResult">Responda às 10 perguntas.</output>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span>🛰️</span> AgroSat
+      </div>
+      <p class="footer-tagline">// Estação de Monitoramento Agrícola via Sensor Embarcado</p>
+      <div class="footer-divider"></div>
+      <p class="footer-credits">
+        Desenvolvido por: <strong>Lucas Kobayashi 569905</strong> &nbsp;|&nbsp; <strong>Pedro Viana 572971</strong>&nbsp;|&nbsp;<strong>Jhonathan Dourado 569568</strong> &nbsp;|&nbsp; <strong>João Matheus 569850</strong>
+      </p>
+      <p class="footer-copy">© 2026 AgroSat · Front-End Design · FIAP</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
